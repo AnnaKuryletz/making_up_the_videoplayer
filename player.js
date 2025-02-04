@@ -1,5 +1,5 @@
 function createPlayer({
-  elementId,
+  elementClass,
   src='https://dvmn.org/media/filer_public/78/db/78db3456-3fd3-4504-9ed9-d2d1fd843c0b/highest_peak.mp4'
 }){
   const player = Playable.create({
@@ -8,20 +8,20 @@ function createPlayer({
     hideOverlay: true,
     hideMainUI: true,
   });
-  const playerContainer = document.getElementById(elementId)
+  const playerContainer = document.querySelector('.video-player');
 
   if (!playerContainer){
-    throw Error(`Element with id "${elementId}" not found.`);
+    throw Error(`Element with id "${elementClass}" not found.`);
   }
 
-  const videoContainers = playerContainer.getElementsByClassName('js-video-container');
+  const videoContainers = playerContainer.getElementsByClassName('video-container');
 
   if (!videoContainers.length){
-    throw Error(`Element with class "js-video-container" not found.`);
+    throw Error(`Element with class "video-container" not found.`);
   }
 
   if (videoContainers.length > 1){
-    throw Error(`Expects single element with class "js-video-container", but ${videoContainers.length} were found.`);
+    throw Error(`Expects single element with class "video-container", but ${videoContainers.length} were found.`);
   }
 
   const videoContainer = videoContainers[0];
@@ -30,8 +30,8 @@ function createPlayer({
   const $playerContainer = $(playerContainer);
 
   (function activatePlayButtons(){
-    const $playButton = $playerContainer.find('.js-play-button');
-    const $pauseButton = $playerContainer.find('.js-pause-button');
+    const $playButton = $playerContainer.find('.play-button');
+    const $pauseButton = $playerContainer.find('.pause-button');
 
     $playButton.click(()=>{
       player.play();
