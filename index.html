@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Пример подключения плеера</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <meta charset="utf-8" />
     <style>
-        .shadow {
-            box-shadow: 0 0 50px rgb(96, 210, 202);
-            display: inline-block
-        }
+      .shadow {
+        box-shadow: 0 0 50px rgb(96, 210, 202);
+        display: inline-block;
+      }
 
-        .video-player {
-            width: 1000px; 
-            height: 700px; 
-            display: flex;
-            flex-direction: column;
-            background: black
-        }
+      .video-player {
+        width: 1000px;
+        height: 700px;
+        display: flex;
+        flex-direction: column;
+        background: black;
+      }
 
-        .video-container {
-            flex-grow: 1;
-            background: black
-        }
+      .video-container {
+        flex-grow: 1;
+        background: black;
+      }
 
-        .player-controls {
-            background: black;          
-            display: flex
-        }
+      .player-controls {
+        background: black;
+        display: flex;
+      }
 
-        .player-controls button {
-            border: none;
-            width: 55px;
-            height: 55px;
-            cursor: pointer;
-            color: white;
-            background: transparent;
-            font-size: 120%
-        }
+      .player-controls button {
+        border: none;
+        width: 55px;
+        height: 55px;
+        cursor: pointer;
+        color: white;
+        background: transparent;
+        font-size: 120%;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="shadow">
-        <div class="video-player">
-            <div class="video-container"></div> 
-            <div class="player-controls">
-                <button class="play-button"><i class="fa fa-play"></i></button>
-                <button class="pause-button"><i class="fa fa-pause"></i></button>
-                <button class="volume-button"><i class="fa fa-volume-up"></i></button>
-                <button class="mute-button"><i class="fa fa-volume-off"></i></button>
-            </div>
+      <div class="video-player">
+        <div class="video-container"></div>
+        <div class="player-controls">
+          <button class="play-button"><i class="fa fa-play"></i></button>
+          <button class="pause-button"><i class="fa fa-pause"></i></button>
+          <button class="volume-button"><i class="fa fa-volume-up"></i></button>
+          <button class="mute-button"><i class="fa fa-volume-off"></i></button>
         </div>
-    </div> 
+      </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://unpkg.com/playable@2.10.3/dist/statics/playable.bundle.min.js"></script>
     <script src="player.js"></script>
     <script type="text/javascript">
-        createPlayer({ elementClass: '.video-player' });
+      createPlayer({ elementClass: ".video-player" });
     </script>
-</body>
+  </body>
 </html>
