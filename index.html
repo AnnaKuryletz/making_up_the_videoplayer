@@ -6,41 +6,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <meta charset="utf-8" />
     <style>
-      .shadow {
-        box-shadow: 0 0 50px rgb(96, 210, 202);
-        display: inline-block;
-      }
-
-      .video-player {
+     
+      .vp-player {
         width: 1000px;
         height: 700px;
         display: flex;
         flex-direction: column;
         background: black;
+        box-shadow: 0 0 50px rgb(96, 210, 202);
       }
 
-      .video-container {
+      .vp-player__display {
         flex-grow: 1;
         background: black;
       }
 
-      .player-controls {
+      .vp-player__controls {
         background: black;
         display: flex;
+        align-items: center;
       }
 
-      .player-controls .play-button,
-      .player-controls .pause-button,
-      .player-controls .volume-button,
-      .player-controls .mute-button,
-      .player-controls .fullscreen-button {
+      .vp-player__button {
         border: none;
         width: 55px;
         height: 55px;
         cursor: pointer;
         color: white;
         background: transparent;
-        font-size: 120%;
+        font-size: 20px;
       }
 
       .spacer {
@@ -49,25 +43,23 @@
     </style>
   </head>
   <body>
-    <div class="shadow">
-      <div class="video-player">
-        <div class="video-container"></div>
-        <div class="player-controls">
-          <button class="play-button"><i class="fa fa-play"></i></button>
-          <button class="pause-button"><i class="fa fa-pause"></i></button>
-          <button class="volume-button"><i class="fa fa-volume-up"></i></button>
-          <button class="mute-button"><i class="fa fa-volume-off"></i></button>
+      <div class="vp-player">
+        <div class="vp-player__display"></div>
+        <div class="vp-player__controls">
+          <button class="vp-player__button"><i class="fa fa-play"></i></button>
+          <button class="vp-player__button"><i class="fa fa-pause"></i></button>
+          <button class="vp-player__button"><i class="fa fa-volume-up"></i></button>
+          <button class="vp-player__button"><i class="fa fa-volume-off"></i></button>
           <div class="spacer"></div>
-          <button class="fullscreen-button"><i class="fa fa-arrows-alt"></i></button>
+          <button class="vp-player__button"><i class="fa fa-arrows-alt"></i></button>
         </div>
       </div>
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://unpkg.com/playable@2.10.3/dist/statics/playable.bundle.min.js"></script>
     <script src="player.js"></script>
     <script type="text/javascript">
-      createPlayer({ elementClass: ".video-player" });
+      createPlayer({ elementClass: ".vp-player" });
     </script>
   </body>
 </html>
