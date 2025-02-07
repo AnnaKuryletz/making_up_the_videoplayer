@@ -26,56 +26,50 @@
 
 ### 2. CSS-оформление
 ```css
-.shadow {
-  box-shadow: 0 0 50px rgb(96, 210, 202);
-  display: inline-block;
-}
-```
-**Описание:**
-- Добавляет свечение вокруг плеера.
-
-```css
-.video-player {
-  width: 1000px;
-  height: 700px;
-  display: flex;
-  flex-direction: column;
-  background: black;
-}
+.vp-player {
+        width: 1000px;
+        height: 700px;
+        display: flex;
+        flex-direction: column;
+        background: black;
+        box-shadow: 0 0 50px rgb(96, 210, 202);
+      }
 ```
 **Описание:**
 - Основной контейнер видеоплеера.
 - Установлена ширина 1000px и высота 700px.
 - Элементы внутри организованы в колонку.
+- Добавляет тень вокруг плеера
 
 ```css
-.video-container {
-  flex-grow: 1;
-  background: black;
-}
+.vp-player__display {
+        flex-grow: 1;
+        background: black;
+      }
 ```
 **Описание:**
 - Контейнер для видео, занимает всё доступное пространство.
 
 ```css
-.player-controls {
-  background: black;
-  display: flex;
-}
+.vp-player__controls {
+        background: black;
+        display: flex;
+        align-items: center;
+      }
 ```
 **Описание:**
 - Контейнер для кнопок управления.
 
 ```css
-.player-controls button {
-  border: none;
-  width: 55px;
-  height: 55px;
-  cursor: pointer;
-  color: white;
-  background: transparent;
-  font-size: 120%;
-}
+ .vp-player__button {
+        border: none;
+        width: 55px;
+        height: 55px;
+        cursor: pointer;
+        color: white;
+        background: transparent;
+        font-size: 20px;
+      }
 ```
 **Описание:**
 - Оформление кнопок управления.
@@ -92,30 +86,27 @@
 
 ## 3. Основной HTML-код
 ```html
-<div class="shadow">
-  <div class="video-player">
-    <div class="video-container"></div>
-    <div class="player-controls">
-      <button class="play-button"><i class="fa fa-play"></i></button>
-      <button class="pause-button"><i class="fa fa-pause"></i></button>
-      <button class="volume-button"><i class="fa fa-volume-up"></i></button>
-      <button class="mute-button"><i class="fa fa-volume-off"></i></button>
-      <div class="spacer"></div>
-      <button class="fullscreen-button"><i class="fa fa-arrows-alt"></i></button>
-    </div>
+<div class="vp-player">
+  <div class="vp-player__display"></div>
+  <div class="vp-player__controls">
+    <button class="vp-player__button"><i class="fa fa-play"></i></button>
+    <button class="vp-player__button"><i class="fa fa-pause"></i></button>
+    <button class="vp-player__button"><i class="fa fa-volume-up"></i></button>
+    <button class="vp-player__button"><i class="fa fa-volume-off"></i></button>
+    <div class="spacer"></div>
+    <button class="vp-player__button"><i class="fa fa-arrows-alt"></i></button>
   </div>
 </div>
 ```
 **Описание:**
-- `shadow` — контейнер с тенью.
-- `video-player` — главный блок плеера.
-- `video-container` — место для видео.
-- `player-controls` — кнопки управления:
-  - Воспроизведение (`.play-button`).
-  - Пауза (`.pause-button`).
-  - Увеличение громкости (`.volume-button`).
-  - Отключение звука (`.mute-button`).
-  - Полноэкранный режим (`.fullscreen-button`).
+- `vp-player` — главный блок плеера.
+- `vp-player__display` — место для видео.
+- `vp-player__controls` — кнопки управления:
+  - Воспроизведение (`.fa-play`).
+  - Пауза (`.fa-pause`).
+  - Увеличение громкости (`.fa-volume-up`).
+  - Отключение звука (`.fa-volume-off`).
+  - Полноэкранный режим (`.fa-arrows-alt`).
   - `spacer` отталкивает кнопку fullscreen вправо.
 
 ---
@@ -126,14 +117,14 @@
 <script src="https://unpkg.com/playable@2.10.3/dist/statics/playable.bundle.min.js"></script>
 <script src="player.js"></script>
 <script type="text/javascript">
-  createPlayer({ elementClass: ".video-player" });
+  createPlayer({ elementClass: ".vp-player" });
 </script>
 ```
 **Описание:**
 - Подключение jQuery.
 - Подключение библиотеки `playable` для работы с видео.
 - Подключение `player.js` (внешний файл, содержащий логику плеера).
-- Инициализация плеера с классом `.video-player`.
+- Инициализация плеера с классом `.vp-player`.
 
 ---
 
