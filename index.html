@@ -64,6 +64,7 @@
         border-radius: 30px;
         height: 5px;
       }
+      
       .js-progress-slider {
         background-color: #f8104d;
       }
@@ -71,6 +72,21 @@
       .right-buttons {
         padding: auto;
       }
+
+      .dot {
+        transform: translateX(-50%);
+        height: 8px;
+        width: 8px;
+        background-color: #f8104d;
+        border: solid;
+        border-color: white;
+        border-radius: 50%;
+        border-width: 2.5px;
+        box-shadow: 0 0 50px rgb(34, 36, 32);
+        margin-bottom: -10px 0 0 -10px;
+        cursor: pointer;
+      }
+
     </style>
   </head>
   <body>
@@ -89,12 +105,12 @@
           </div>
           <div class="js-progress">
             <div class="js-progress-slider"></div>
+            <span class="dot"></span>
           </div>
           <div class="video-duration">
             <span class="js-duration"></span>
           </div>
         </div>
-
         <div class="right-buttons"></div>
         <button class="vp-player__button"><i class="fa fa-arrows-alt"></i></button>
       </div>
