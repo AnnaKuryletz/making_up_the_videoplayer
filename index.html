@@ -2,11 +2,13 @@
 <html>
   <head>
     <title>Пример подключения плеера</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/png" href="https://dashboard.snapcraft.io/site_media/appmedia/2021/03/external-content.duckduckgo.com.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <meta charset="utf-8" />
     <style>
-     
       .vp-player {
         width: 800px;
         height: 600px;
@@ -37,23 +39,39 @@
         font-size: 20px;
       }
 
+      .vp-player__time {
+        color: white;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+      }
+
+      .js-duration {
+        padding-left: 580px;
+      }
+
       .spacer {
         flex-grow: 1;
       }
     </style>
   </head>
   <body>
-      <div class="vp-player">
-        <div class="vp-player__display"></div>
-        <div class="vp-player__controls">
+    <div class="vp-player">
+      <div class="vp-player__display"></div>
+      <div class="vp-player__controls">
+        <div class="left-buttons">
           <button class="vp-player__button"><i class="fa fa-play"></i></button>
           <button class="vp-player__button"><i class="fa fa-pause"></i></button>
           <button class="vp-player__button"><i class="fa fa-volume-up"></i></button>
           <button class="vp-player__button"><i class="fa fa-volume-off"></i></button>
-          <div class="spacer"></div>
-          <button class="vp-player__button"><i class="fa fa-arrows-alt"></i></button>
         </div>
+        <div class="vp-player__progress">
+          <span class="vp-player__time js-current-time"></span>
+          <span class="vp-player__time js-duration"></span>
+        </div>
+        <div class="spacer"></div>
+        <button class="vp-player__button"><i class="fa fa-arrows-alt"></i></button>
       </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://unpkg.com/playable@2.10.3/dist/statics/playable.bundle.min.js"></script>
