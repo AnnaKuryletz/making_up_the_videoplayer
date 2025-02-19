@@ -15,7 +15,7 @@
         display: flex;
         flex-direction: column;
         background: black;
-        box-shadow: 0 0 50px rgb(96, 210, 202);
+        box-shadow: 0 0 50px rgb(81, 82, 82);
       }
 
       .vp-player__display {
@@ -37,6 +37,12 @@
         color: white;
         background: transparent;
         font-size: 20px;
+      }
+
+      .vp-player__button:focus {
+        outline: none;
+        box-shadow: none;
+        background: transparent;
       }
 
       .viewing-time,
@@ -64,7 +70,7 @@
         border-radius: 30px;
         height: 5px;
       }
-      
+
       .js-progress-slider {
         background-color: #f8104d;
       }
@@ -78,7 +84,7 @@
         height: 8px;
         width: 8px;
         background-color: #f8104d;
-        opacity: 0; 
+        opacity: 0;
         border: solid;
         border-color: white;
         border-radius: 50%;
@@ -91,11 +97,10 @@
       }
 
       .vp-player__controls:hover .dot {
-      background-color: #f8104d; 
-      opacity: 1; 
-      width: 8px;
+        background-color: #f8104d;
+        opacity: 1;
+        width: 8px;
       }
-
     </style>
   </head>
   <body>
