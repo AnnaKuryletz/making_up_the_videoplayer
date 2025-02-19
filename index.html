@@ -78,13 +78,22 @@
         height: 8px;
         width: 8px;
         background-color: #f8104d;
+        opacity: 0; 
         border: solid;
         border-color: white;
         border-radius: 50%;
         border-width: 2.5px;
         box-shadow: 0 0 50px rgb(34, 36, 32);
         margin-bottom: -10px 0 0 -10px;
+        transition-property: width;
+        transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
         cursor: pointer;
+      }
+
+      .vp-player__controls:hover .dot {
+      background-color: #f8104d; 
+      opacity: 1; 
+      width: 8px;
       }
 
     </style>
