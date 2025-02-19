@@ -111,7 +111,7 @@ function createPlayer({ elementClass, src = "https://dvmn.org/media/filer_public
     }
 
     (function activateTimeLabels() {
-        const $currentTime = $playerContainer.find(".current-time");
+        const $currentTime = $playerContainer.find(".viewing-time__current-time");
         function showCurrentTime() {
             const totalSeconds = player.getCurrentTime();
             const formattedTime = formatTime(totalSeconds);
@@ -120,7 +120,7 @@ function createPlayer({ elementClass, src = "https://dvmn.org/media/filer_public
         player.on(Playable.VIDEO_EVENTS.CURRENT_TIME_UPDATED, showCurrentTime);
         showCurrentTime();
 
-        const $duration = $playerContainer.find(".duration");
+        const $duration = $playerContainer.find(".video-duration__duration");
         function showDuration() {
             const totalSeconds = player.getDuration();
             const formattedTime = formatTime(totalSeconds);
@@ -162,8 +162,8 @@ function createPlayer({ elementClass, src = "https://dvmn.org/media/filer_public
     }
 
     (function activateProgressbar() {
-        const $progress = $playerContainer.find(".viewing-progressbar");
-        const $slider = $progress.find(".progress-slider");
+        const $progress = $playerContainer.find(".viewing-panel__viewing-progressbar");
+        const $slider = $progress.find(".viewing-progressbar__progress-slider");
 
         function setSliderWidth(percentage) {
             $slider.css("width", `${percentage}%`);

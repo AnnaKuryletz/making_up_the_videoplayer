@@ -45,33 +45,33 @@
         background: transparent;
       }
 
-      .viewing-time,
-      .video-duration {
+      .viewing-panel__viewing-time,
+      .video-duration__duration {
         color: white;
         font-family: "Roboto", sans-serif;
         font-weight: 400;
       }
 
       .viewing-panel,
-      .viewing-progressbar{
+      .viewing-panel__viewing-progressbar{
         display: flex;
         flex-grow: 1;
         align-items: center;
       }
 
-      .viewing-progressbar {
+      .viewing-panel__viewing-progressbar {
         background-color: black;
         margin-left: 10px;
         margin-right: 10px;
       }
 
-      .progress-slider,
-      .viewing-progressbar{
+      .viewing-progressbar__progress-slider,
+      .viewing-panel__viewing-progressbar{
         border-radius: 30px;
         height: 5px;
       }
 
-      .progress-slider {
+      .viewing-progressbar__progress-slider {
         background-color: #f8104d;
       }
 
@@ -107,25 +107,25 @@
     <div class="vp-player">
       <div class="vp-player__display"></div>
       <div class="vp-player__controls">
-        <div class="left-buttons">
+        <div class="vp-player__left-buttons">
           <button class="vp-player__button"><i class="fa fa-play"></i></button>
           <button class="vp-player__button"><i class="fa fa-pause"></i></button>
           <button class="vp-player__button"><i class="fa fa-volume-up"></i></button>
           <button class="vp-player__button"><i class="fa fa-volume-off"></i></button>
         </div>
         <div class="viewing-panel">
-          <div class="viewing-time">
-            <div class="current-time"></div>
+          <div class="viewing-panel__viewing-time">
+            <div class="viewing-time__current-time"></div>
           </div>
-          <div class="viewing-progressbar">
-            <div class="progress-slider"></div>
+          <div class="viewing-panel__viewing-progressbar">
+            <div class="viewing-progressbar__progress-slider"></div>
             <span class="dot"></span>
           </div>
-          <div class="video-duration">
-            <span class="duration"></span>
+          <div class="viewing-panel__video-duration">
+            <span class="video-duration__duration"></span>
           </div>
         </div>
-        <div class="right-buttons"></div>
+        <div class="vp-player__right-buttons"></div>
         <button class="vp-player__button"><i class="fa fa-arrows-alt"></i></button>
       </div>
     </div>
