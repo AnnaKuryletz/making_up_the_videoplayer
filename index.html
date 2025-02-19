@@ -2,18 +2,20 @@
 <html>
   <head>
     <title>Пример подключения плеера</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/png" href="https://dashboard.snapcraft.io/site_media/appmedia/2021/03/external-content.duckduckgo.com.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <meta charset="utf-8" />
     <style>
-     
       .vp-player {
-        width: 1000px;
-        height: 700px;
+        width: 800px;
+        height: 600px;
         display: flex;
         flex-direction: column;
         background: black;
-        box-shadow: 0 0 50px rgb(96, 210, 202);
+        box-shadow: 0 0 50px rgb(81, 82, 82);
       }
 
       .vp-player__display {
@@ -29,31 +31,104 @@
 
       .vp-player__button {
         border: none;
-        width: 55px;
-        height: 55px;
+        width: 35px;
+        height: 45px;
         cursor: pointer;
         color: white;
         background: transparent;
         font-size: 20px;
       }
 
-      .spacer {
+      .vp-player__button:focus {
+        outline: none;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      .viewing-time,
+      .video-duration {
+        color: white;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+      }
+
+      .viewing-panel,
+      .js-progress {
+        display: flex;
         flex-grow: 1;
+        align-items: center;
+      }
+
+      .js-progress {
+        background-color: black;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .js-progress-slider,
+      .js-progress {
+        border-radius: 30px;
+        height: 5px;
+      }
+
+      .js-progress-slider {
+        background-color: #f8104d;
+      }
+
+      .right-buttons {
+        padding: auto;
+      }
+
+      .dot {
+        transform: translateX(-50%);
+        height: 8px;
+        width: 8px;
+        background-color: #f8104d;
+        opacity: 0;
+        border: solid;
+        border-color: white;
+        border-radius: 50%;
+        border-width: 2.5px;
+        box-shadow: 0 0 50px rgb(34, 36, 32);
+        margin-bottom: -10px 0 0 -10px;
+        transition-property: width;
+        transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+        cursor: pointer;
+      }
+
+      .vp-player__controls:hover .dot {
+        background-color: #f8104d;
+        opacity: 1;
+        width: 8px;
       }
     </style>
   </head>
   <body>
-      <div class="vp-player">
-        <div class="vp-player__display"></div>
-        <div class="vp-player__controls">
+    <div class="vp-player">
+      <div class="vp-player__display"></div>
+      <div class="vp-player__controls">
+        <div class="left-buttons">
           <button class="vp-player__button"><i class="fa fa-play"></i></button>
           <button class="vp-player__button"><i class="fa fa-pause"></i></button>
           <button class="vp-player__button"><i class="fa fa-volume-up"></i></button>
           <button class="vp-player__button"><i class="fa fa-volume-off"></i></button>
-          <div class="spacer"></div>
-          <button class="vp-player__button"><i class="fa fa-arrows-alt"></i></button>
         </div>
+        <div class="viewing-panel">
+          <div class="viewing-time">
+            <div class="js-current-time"></div>
+          </div>
+          <div class="js-progress">
+            <div class="js-progress-slider"></div>
+            <span class="dot"></span>
+          </div>
+          <div class="video-duration">
+            <span class="js-duration"></span>
+          </div>
+        </div>
+        <div class="right-buttons"></div>
+        <button class="vp-player__button"><i class="fa fa-arrows-alt"></i></button>
       </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://unpkg.com/playable@2.10.3/dist/statics/playable.bundle.min.js"></script>
